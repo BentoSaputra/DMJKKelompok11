@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Final_project_week10.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///r%3A/2.Travail/1.Enseignement/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css"><link rel="stylesheet" href="file:///d%3A/rdaros/Cours/_1.Outils/2.Developpement/1.SCSS/main.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="week-10">Week 10</h1>
+<ul>
+<li>Ade Ayu Kholifah Putri (10231004) - Network Architech</li>
+<li>Arya Wijaya Saroyo (10231020) - Network Engineer</li>
+<li>Krishandy Dhanysa Pratama (10231050) - Network Services Specialist</li>
+<li>Muhammad Dani (10231062) - Security &amp; Documentation Specialist</li>
+</ul>
+<h2 id="topologi-fisik">Topologi  Fisik</h2>
+<p><img src="file:///c:/Users/LENOVO/Downloads/dmjk tubes/dmjk tubes/dmjk/topologifisik.jpg" alt="Topologi Fisik"></p>
+<p><strong>Gedung A (Kantor Pusat)</strong>:</p>
+<ul>
+<li>1 Router Gedung A → terkoneksi ke Router Utama dan ke Main Switch Gedung A.</li>
+<li>Main switch terkoneksi ke:
+<ul>
+<li>Switch Departemen IT (40 PC)</li>
+<li>Switch Departemen Keuangan (25 PC)</li>
+<li>Switch Departemen SDM (20 PC)</li>
+<li>Switch Ruang Server (10 Server)</li>
+</ul>
+</li>
+<li>Dilengkapi 4 Access Point untuk area IT, Keuangan, SDM, dan Umum.</li>
+</ul>
+<p><strong>Gedung B (Kantor Cabang)</strong>:</p>
+<ul>
+<li>1 Router Gedung B → terkoneksi ke Router Utama dan ke Main Switch Gedung B.</li>
+<li>Main switch terkoneksi ke:
+<ul>
+<li>Switch Departemen Marketing (30 PC)</li>
+<li>Switch Departemen Operasional (35 PC)</li>
+</ul>
+</li>
+<li>Dilengkapi 2 Access Point untuk Marketing dan Operasional.</li>
+</ul>
+<p><strong>Antar Gedung</strong>:</p>
+<ul>
+<li>Terhubung melalui link WAN (leased line/serial) via Router Utama.</li>
+<li>Router Utama juga terkoneksi ke ISP untuk internet.</li>
+</ul>
+<h2 id="topologi-logis">Topologi Logis</h2>
+<p><img src="file:///c:/Users/LENOVO/Downloads/dmjk tubes/dmjk tubes/dmjk/topologilogis.jpg" alt="Topologi Logis"></p>
+<ul>
+<li>Setiap departemen dikelompokkan dalam VLAN terpisah.</li>
+<li>Routing antar VLAN dilakukan oleh Router Utama.</li>
+<li>Server DHCP dan DNS diletakkan di VLAN Server Farm.</li>
+<li>Routing antar router menggunakan protokol OSPF.</li>
+<li>NAT dilakukan di Router Utama untuk koneksi internet publik.</li>
+</ul>
+<h2 id="pengalamatan-ip-dan-vlan">Pengalamatan IP dan VLAN</h2>
+<table>
+<thead>
+<tr>
+<th>Departemen</th>
+<th>VLAN ID</th>
+<th>Subnet</th>
+<th>Gateway</th>
+<th>IP Range</th>
+<th>Jumlah Host</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IT</td>
+<td>10</td>
+<td>192.168.10.0/26</td>
+<td>192.168.10.1</td>
+<td>192.168.10.2–192.168.10.62</td>
+<td>40 PC</td>
+</tr>
+<tr>
+<td>Keuangan</td>
+<td>20</td>
+<td>192.168.20.0/27</td>
+<td>192.168.20.1</td>
+<td>192.168.20.2–192.168.20.30</td>
+<td>25 PC</td>
+</tr>
+<tr>
+<td>SDM</td>
+<td>30</td>
+<td>192.168.30.0/27</td>
+<td>192.168.30.1</td>
+<td>192.168.30.2–192.168.30.30</td>
+<td>20 PC</td>
+</tr>
+<tr>
+<td>Server Farm</td>
+<td>40</td>
+<td>192.168.40.0/28</td>
+<td>192.168.40.1</td>
+<td>192.168.40.2–192.168.40.14</td>
+<td>10 Server</td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>50</td>
+<td>192.168.50.0/27</td>
+<td>192.168.50.1</td>
+<td>192.168.50.2–192.168.50.30</td>
+<td>30 PC</td>
+</tr>
+<tr>
+<td>Operasional</td>
+<td>60</td>
+<td>192.168.60.0/26</td>
+<td>192.168.60.1</td>
+<td>192.168.60.2–192.168.60.62</td>
+<td>35 PC</td>
+</tr>
+<tr>
+<td>Link Antar Gedung</td>
+<td>99</td>
+<td>192.168.99.0/30</td>
+<td>192.168.99.1</td>
+<td>192.168.99.1–192.168.99.2</td>
+<td>2 Router</td>
+</tr>
+</tbody>
+</table>
+<h2 id="daftar-perangkat-yang-dibutuhkan">Daftar Perangkat yang Dibutuhkan</h2>
+<table>
+<thead>
+<tr>
+<th>Perangkat</th>
+<th>Jumlah</th>
+<th>Lokasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Router</td>
+<td>3</td>
+<td>Router Utama, Router Gedung A &amp; B</td>
+</tr>
+<tr>
+<td>Switch Layer 3</td>
+<td>2</td>
+<td>Masing-masing gedung</td>
+</tr>
+<tr>
+<td>Switch Layer 2</td>
+<td>6 (+4)</td>
+<td>Masing-masing departemen</td>
+</tr>
+<tr>
+<td>Server DHCP &amp; DNS</td>
+<td>2</td>
+<td>Ruang Server Farm</td>
+</tr>
+<tr>
+<td>Server Aplikasi/File</td>
+<td>8</td>
+<td>Ruang Server Farm</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>150</td>
+<td>Total seluruh departemen</td>
+</tr>
+<tr>
+<td>Access Point (AP)</td>
+<td>6</td>
+<td>IT, Keuangan, SDM, Marketing, Operasional, Umum</td>
+</tr>
+<tr>
+<td>Kabel UTP</td>
+<td>156</td>
+<td>Tiap PC/server ke switch</td>
+</tr>
+<tr>
+<td>Kabel Serial/WAN</td>
+<td>2</td>
+<td>Antar Router Gedung A dan B</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="rencana-penerapan-vlan">Rencana Penerapan VLAN</h2>
+<table>
+<thead>
+<tr>
+<th>VLAN ID</th>
+<th>Nama VLAN</th>
+<th>Tujuan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>VLAN_IT</td>
+<td>Segmentasi jaringan IT</td>
+</tr>
+<tr>
+<td>20</td>
+<td>VLAN_Keuangan</td>
+<td>Mengamankan akses dan data keuangan</td>
+</tr>
+<tr>
+<td>30</td>
+<td>VLAN_SDM</td>
+<td>Memisahkan komunikasi SDM</td>
+</tr>
+<tr>
+<td>40</td>
+<td>VLAN_Server</td>
+<td>Memastikan server internal terisolasi</td>
+</tr>
+<tr>
+<td>50</td>
+<td>VLAN_Marketing</td>
+<td>Memisahkan trafik marketing</td>
+</tr>
+<tr>
+<td>60</td>
+<td>VLAN_Operasional</td>
+<td>Memisahkan trafik operasional</td>
+</tr>
+<tr>
+<td>99</td>
+<td>VLAN_Backbone</td>
+<td>Komunikasi antar router/switch</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="implementasi-awal-cisco">Implementasi Awal Cisco</h2>
+<p><img src="file:///c:/Users/LENOVO/Downloads/dmjk tubes/dmjk tubes/dmjk/topologicisco.png" alt="Topologi Cisco"></p>
+<h2 id="penjelasan">Penjelasan</h2>
+<h3 id="1-infrastruktur-utama">1. Infrastruktur utama</h3>
+<h4 id="11-perangkat-router">1.1 Perangkat Router</h4>
+<p>Topologi ini menggunakan tiga buah <strong>router Cisco 2911</strong> yang masing-masing dipasang modul <strong>HWIC-2T</strong> untuk mendukung konektivitas antar gedung:</p>
+<ul>
+<li><strong>Router Utama</strong></li>
+<li><strong>Router Gedung A</strong></li>
+<li><strong>Router Gedung B</strong></li>
+</ul>
+<p>Ketiga router tersebut saling terhubung menggunakan <strong>kabel serial DCE</strong>, dengan rincian koneksi sebagai berikut:</p>
+<ul>
+<li>Router Utama (Serial 0/3/0) → Router Gedung A (Serial 0/3/1)</li>
+<li>Router Utama (Serial 0/3/1) → Router Gedung B (Serial 0/3/0)</li>
+</ul>
+<p>Router utama bertindak sebagai DCE dan memberikan clock rate untuk koneksi serial.</p>
+<h3 id="2-infrastruktur-switch-dan-koneksi-gedung">2. Infrastruktur Switch dan Koneksi Gedung</h3>
+<h4 id="21-main-switch-per-gedung">2.1 Main Switch per Gedung</h4>
+<p>Masing-masing gedung (Gedung A dan Gedung B) dilengkapi dengan <strong>1 unit Cisco Catalyst 3560-24PS</strong> sebagai main switch. Switch ini berfungsi sebagai penghubung antara router dan switch di tiap departemen.</p>
+<h4 id="22-switch-per-departemen">2.2 Switch per Departemen</h4>
+<p>Total terdapat <strong>9 switch Cisco 3560-24PS</strong> yang digunakan untuk masing-masing departemen, sebagai berikut:</p>
+<ul>
+<li>IT 1 &amp; IT 2</li>
+<li>Keuangan 1 &amp; Keuangan 2</li>
+<li>SDM</li>
+<li>Marketing 1 &amp; Marketing 2</li>
+<li>Operasional 1 &amp; Operasional 2</li>
+</ul>
+<p>Catatan: Beberapa departemen seperti IT, Keuangan, Marketing, dan Operasional menggunakan dua switch karena keterbatasan jumlah port pada switch 3560 di Cisco Packet Tracer (hanya 24 port).</p>
+<h4 id="23-switch-server-farm">2.3 Switch Server Farm</h4>
+<p>Ruang Server Farm menggunakan <strong>1 switch Cisco 2960</strong> karena kebutuhan port lebih sedikit dibanding departemen lain.</p>
+<h3 id="3-wireless-access-point-ap">3. Wireless Access Point (AP)</h3>
+<p>Total terdapat <strong>6 buah Access Point (AP)</strong> yang tersebar di:</p>
+<ul>
+<li>Setiap departemen (5 AP)</li>
+<li>Server Farm (1 AP)</li>
+</ul>
+<p>Setiap AP terkoneksi langsung ke switch departemen atau server farm masing-masing.</p>
+<h3 id="4-tipe-kabel-yang-digunakan">4. Tipe Kabel yang Digunakan</h3>
+<p>Berikut adalah jenis kabel yang digunakan untuk menghubungkan perangkat:</p>
+<ul>
+<li><strong>PC/Server/AP ke Switch</strong> → <strong>Copper Straight-Through</strong></li>
+<li><strong>Switch ke Switch</strong> → <strong>Copper Cross-Over</strong></li>
+<li><strong>Router ke Router</strong> (Serial) → <strong>Serial DCE</strong></li>
+</ul>
+<h3 id="5-pengaturan-port-switch">5. Pengaturan Port Switch</h3>
+<h4 id="51-departemen-dengan-dua-switch">5.1 Departemen dengan Dua Switch</h4>
+<p>Untuk departemen yang menggunakan dua switch, dilakukan penghubungan internal antar switch:</p>
+<ul>
+<li>
+<p><strong>Switch 1 ↔ Switch 2</strong>:</p>
+<ul>
+<li>Port: <code>FastEthernet0/24 ↔ FastEthernet0/24</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Switch 1 ke Main Switch Gedung</strong>:</p>
+<ul>
+<li>Port: <code>FastEthernet0/23 ↔ FastEthernet0/1</code></li>
+<li>Port <code>0/1</code> pada main switch digunakan secara berurutan untuk tiap switch departemen.</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/BentoSaputra/DMJKKelompok11/tree/main/Pekan%2010">Link Github Pekan 10</a></p>
+
+</body>
+
+</html>
